@@ -8,14 +8,16 @@ A library to connect input connectors to specific outputs
 
 **Endpoint** 
 
-```http://localhost:8000/events/send```
+```
+http://localhost:8000/events/send
+```
+
 
 **Request body - Play sound from file**
 
 ```json
 {
 	"cmd" : "play -f users/batman.wav"
-
 }
 ```
 
@@ -24,7 +26,6 @@ A library to connect input connectors to specific outputs
 ```json
 {
 	"cmd" : "play -u https://www.youtube.com/watch?v=3R5gHF0vzew"
-
 }
 ```
 
@@ -32,13 +33,14 @@ A library to connect input connectors to specific outputs
 
 **Endpoint** 
 
-```http://localhost:8000/events/send```
+```
+http://localhost:8000/events/send
+```
 
 **Request body**
 
 ```json
 {
 	"cmd" : "speak -m 'hello Pano'"
-
 }
 ```
