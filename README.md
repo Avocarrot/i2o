@@ -2,9 +2,28 @@
 <img src="https://cloud.githubusercontent.com/assets/1907604/7896840/4cb417da-06cf-11e5-9e17-b21b37839323.jpg" width=70>
 
 # i2o
-A library to connect input connectors to specific outputs
 
-#### Play sounds
+## Purpose
+This project allows you to trigger sound effects from a web hook. You can play sounds or listen to a message using text to speech. 
+
+We built this during an office hackday at [Avocarrot](http://www.avocarrot.com). We use it with Slack's web hooks to get notified about calendar events, build statuses or just troll each other:)
+
+## Contents
+
+- [Getting started](#getting-started)
+- [Play sounds](#play-sounds)
+- [Text to speech](#text-to-speech)
+- [Contributing](#contributing)
+
+## Getting started
+
+1. Fork the project
+2. Install dependencies using ```pip install -r pip-reqs.txt```
+3. Start the web server using ```python manage.py runserver```
+4. Start Celery worker with ```celery -A i2o worker -l info``` (you should also run RabbitMQ or change the broker settings in the settings.py)
+5. Have fun!
+
+## Play sounds
 
 **Endpoint** 
 
@@ -29,7 +48,7 @@ http://localhost:8000/events/send
 }
 ```
 
-#### Text to speech
+## Text to speech
 
 **Endpoint** 
 
@@ -41,6 +60,15 @@ http://localhost:8000/events/send
 
 ```json
 {
-	"cmd" : "speak -m 'hello Pano'"
+	"cmd" : "speak -m 'Hello World'"
 }
 ```
+
+## Contributing
+
+We'd love more people to contribute to this project so feel free to submit your pull requests.
+
+1. Fork the repo
+2. Apply your changes
+3. Write tests
+4. Submit your pull request
