@@ -5,7 +5,7 @@ from celery import shared_task
 @shared_task
 def play_sound(args):
 	filename = args['-f']
-	os.system('aplay ~/sounds/' + filename +'.wav')
+	os.system('aplay ~/sounds/' + filename)
 
 @shared_task
 def speak(args):
