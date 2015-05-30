@@ -1,12 +1,20 @@
 from django.http import JsonResponse
 from .utils import parse_command
+from .tasks import play_sound, speak
 
 def send(request):
 	if request.method == 'POST':
 		cmd_string = request.POST.get('cmd', '')
 		if cmd_string:
 			parsed_cmd = parse_command(cmd_string)
-			res = {'command': parsed_cmd['cmd']}
+			if parsed_cmd['cmd'] == 'play':
+				play_sound.delay(parsed_cmd['args'])
+				res = {'command': parsed_cmd['cmd']}
+			elif parsed_cmd['cmd'] == 'speak':
+				speak.delay(parsed_cmd['args'])
+				res = {'command': parsed_cmd['cmd']}
+			else:
+				res = {'error': 'Command not found: ' + parsed_cmd['cmd']}			
 		else:
 			res = {'error': 'Command string cannot be empty'}
 		return JsonResponse(res)

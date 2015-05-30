@@ -39,3 +39,11 @@ class ViewsTests(TestCase):
 		response = self.client.post(reverse('events:send'), {'cmd': ''})
 		data = json.loads(response.content)
 		self.assertEqual(data['error'], 'Command string cannot be empty')
+
+	def test_error_if_cmd_not_found(self):
+		"""
+		Test that we return an error if cmd is not supported
+		"""
+		response = self.client.post(reverse('events:send'), {'cmd': 'wrong'})
+		data = json.loads(response.content)
+		self.assertEqual(data['error'], 'Command not found: wrong')
