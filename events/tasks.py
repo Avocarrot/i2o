@@ -4,8 +4,13 @@ from celery import shared_task
 
 @shared_task
 def play_sound(args):
-	filename = args['-f']
-	os.system('aplay ~/sounds/' + filename)
+	filename = args.get('-f', None)
+	url = args.get('-u', None)
+
+	if filename is not None:
+		os.system('aplay ~/sounds/' + filename)
+	elif url is not None:
+		os.system('mpsyt playurl ' + url)
 
 @shared_task
 def speak(args):
