@@ -20,7 +20,9 @@ class ViewsTests(TestCase):
 		"""
 		Test that send endpoint executes the correct command
 		"""
-		response = self.client.post(reverse('events:send'), {'cmd': 'play -f batman.wav -r 2'})
+		response = self.client.post(reverse('events:send'), 
+									json.dumps({'cmd': 'play -f batman.wav -r 2'}), 
+									content_type="application/json")
 		data = json.loads(response.content)
 		self.assertEqual(data['command'], 'play')
 
@@ -36,7 +38,7 @@ class ViewsTests(TestCase):
 		"""
 		Test that we return an error if cmd is not specified
 		"""
-		response = self.client.post(reverse('events:send'), {'cmd': ''})
+		response = self.client.post(reverse('events:send'), json.dumps({'cmd': ''}), content_type="application/json")
 		data = json.loads(response.content)
 		self.assertEqual(data['error'], 'Command string cannot be empty')
 
@@ -44,6 +46,6 @@ class ViewsTests(TestCase):
 		"""
 		Test that we return an error if cmd is not supported
 		"""
-		response = self.client.post(reverse('events:send'), {'cmd': 'wrong'})
+		response = self.client.post(reverse('events:send'), json.dumps({'cmd': 'wrong'}), content_type="application/json")
 		data = json.loads(response.content)
 		self.assertEqual(data['error'], 'Command not found: wrong')

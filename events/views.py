@@ -1,10 +1,14 @@
+import json
 from django.http import JsonResponse
 from .utils import parse_command
 from .tasks import play_sound, speak
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def send(request):
 	if request.method == 'POST':
-		cmd_string = request.POST.get('cmd', '')
+		body = json.loads(request.body)
+		cmd_string = body['cmd'] or ''
 		if cmd_string:
 			parsed_cmd = parse_command(cmd_string)
 			if parsed_cmd['cmd'] == 'play':
