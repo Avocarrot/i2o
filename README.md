@@ -1,12 +1,9 @@
-
-<img src="https://cloud.githubusercontent.com/assets/1907604/7896840/4cb417da-06cf-11e5-9e17-b21b37839323.jpg" width=70>
-
 # i2o
 
 ## Purpose
 This project allows you to trigger sound effects from a web hook. You can play sounds or listen to a message using text to speech. 
 
-We built this during an office hackday at [Avocarrot](http://www.avocarrot.com). We use it with Slack's web hooks to get notified about calendar events, build statuses or just troll each other:)
+We built this during an office hackday at [Avocarrot](http://www.avocarrot.com). We use it with Slack's web hooks and a Rasberry Pi to get notified about calendar events, build statuses or just troll each other:)
 
 ## Contents
 
