@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     #i2o apps
-    'actions'
+    'events'
 )
 
 MIDDLEWARE_CLASSES = (
