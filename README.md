@@ -1,3 +1,5 @@
+<img src="https://cloud.githubusercontent.com/assets/1907604/7903383/7e204d10-07e3-11e5-88cb-95e84c002c19.png" width=180/>
+
 # i2o
 
 ## Purpose
