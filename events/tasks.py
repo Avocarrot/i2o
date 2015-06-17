@@ -8,7 +8,7 @@ def play_sound(args):
 	url = args.get('-u', None)
 
 	if filename is not None:
-		os.system('aplay ~/sounds/' + filename)
+		os.system('aplay /home/pi/sounds/' + filename)
 	elif url is not None:
 		os.system('mpsyt playurl ' + url)
 
