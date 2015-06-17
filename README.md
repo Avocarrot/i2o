@@ -1,7 +1,5 @@
 <img src="https://cloud.githubusercontent.com/assets/1907604/7903383/7e204d10-07e3-11e5-88cb-95e84c002c19.png" width=180/>
 
-# i2o
-
 ## Purpose
 This project allows you to trigger sound effects from a web hook. You can play sounds or listen to a message using text to speech. 
 
